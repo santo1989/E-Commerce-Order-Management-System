@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: E-Commerce Order Management API
+  version: 1.0.0
+paths:
+  /api/v1/products:
+    post:
+      summary: Create product
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sku:
+                  type: string
+                name:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
